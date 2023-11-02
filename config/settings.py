@@ -81,6 +81,7 @@ THIRD_PARTY_APPS = (
     "django_extensions",
     "corsheaders",
     "strawberry.django",
+    "guardian",
     # "django_celery_beat",
 )
 
@@ -154,6 +155,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "authorization.User"
 
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",  # this is default
+    "guardian.backends.ObjectPermissionBackend",
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
